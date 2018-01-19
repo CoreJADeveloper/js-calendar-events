@@ -872,6 +872,10 @@ function generate_event_add_elements(table_width, current_day) {
             attendees_email: attendees_array,
         };
 
+        document.getElementById('add-event-fields').parentNode.removeChild(document.getElementById('add-event-fields'));
+        document.getElementById('add-event-tray').style.height = '';
+        document.getElementById('add-close-event').src = 'up.png';
+
         insert_an_event(id, event);
     });
 
@@ -893,6 +897,7 @@ function generate_add_event_tray(current_day) {
     let event_add_element = document.createElement('div');
     event_add_element.style.position = 'absolute';
     event_add_element.style.bottom = '0';
+    event_add_element.id = 'add-event-tray';
     event_add_element.style.backgroundColor = '#D6D6D6';
     event_add_element.style.width = parseInt(popup_modal_div_width - 120) + 'px';
 
@@ -902,6 +907,7 @@ function generate_add_event_tray(current_day) {
 
     let up_down_navigator_image = document.createElement('img');
     up_down_navigator_image.src = 'up.png';
+    up_down_navigator_image.id = 'add-close-event';
     up_down_navigator_image.style.cursor = 'pointer';
     up_down_navigator_image.style.float = 'right';
 
@@ -1027,7 +1033,8 @@ function generate_modal_event_table_row(event) {
     let isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
     let internet_connected = check_internet_connected();
 
-    if (isSignedIn && internet_connected) {
+    if (isSignedIn && internet_connected && (event.google_event_id != null)) {
+        //console.log(event);
         close_image.addEventListener('click', function (e) {
             e.preventDefault();
             if (confirm("Are you sure to delete?")) {
@@ -1378,7 +1385,7 @@ function create_google_event(id, event_object) {
 
 function delete_google_event(event) {
     if (typeof event.google_event_id != 'undefined' || event.google_event_id != null || event.google_event_id != '') {
-        console.log(event);
+        //console.log(event);
 
         var request = gapi.client.calendar.events.delete({
             'calendarId': 'primary',
