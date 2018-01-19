@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="pikaday.css"></link
+    <script src="moment.js"></script>
+    <script src="pickaday.js"></script>
+</head>
+<body>
+<div class="container">
+    <custom-calendar></custom-calendar>
+</div>
+<script>
+    (function () {
+        window.calendar_options = {
+            tag: 'custom-calendar',
+            width: '600px',
+            CLIENT_ID: '37344425877-kp35utsee44250l45sscsrnmtl01o03t.apps.googleusercontent.com',
+            API_KEY: 'AIzaSyB8vxZjd_JGun-p6Ruq9TR2QNiK5IjQG9Y',
+        };
+    })()
+</script>
+<script src="js-calendar.js"></script>
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
+</body>
+</html>
