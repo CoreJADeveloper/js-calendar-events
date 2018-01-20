@@ -14,7 +14,7 @@
     var define_property = function(obj, key, value){
         var config = {
             value: value,
-            writable: true,
+            writable: false,
             enumerable: true,
             configurable: true
         };
