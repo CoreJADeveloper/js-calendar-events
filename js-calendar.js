@@ -11,10 +11,21 @@
         ],
     };
 
-    window.calendar_api_options = {
-        DISCOVERY_DOCS: ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
-        SCOPES: "https://www.googleapis.com/auth/calendar",
-    }
+    var define_property = function(obj, key, value){
+        var config = {
+            value: value,
+            writable: true,
+            enumerable: true,
+            configurable: true
+        };
+
+        Object.defineProperty(obj, key, config);
+    };
+
+    window.calendar_api_options = Object.create(Object.prototype);
+
+    define_property(window.calendar_api_options, 'DISCOVERY_DOCS', ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest']);
+    define_property(window.calendar_api_options, 'SCOPES', 'https://www.googleapis.com/auth/calendar');
 
     var calendar_element = document.getElementsByTagName(window.calendar_options.tag);
 
