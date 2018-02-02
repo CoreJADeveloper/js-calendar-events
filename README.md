@@ -14,8 +14,8 @@ Then add following Javascript code bofore ending body
         window.calendar_options = {
             tag: 'custom-calendar',
             width: '600px',
-            CLIENT_ID: '37344425877-kp35utsee44250l45sscsrnmtl01o03t.apps.googleusercontent.com',
-            API_KEY: 'AIzaSyB8vxZjd_JGun-p6Ruq9TR2QNiK5IjQG9Y',
+            CLIENT_ID: 'CLIENT_ID',
+            API_KEY: 'API_KEY',
         };
     })()
 </script>
