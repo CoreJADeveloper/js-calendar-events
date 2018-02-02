@@ -1625,7 +1625,7 @@ function insert_offline_event_to_google() {
         let get_local_storage_offline_events = get_local_storage_offline_data();
         let isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
 
-        if (typeof get_local_storage_offline_events === 'object' && isSignedIn) {
+        if (get_local_storage_offline_events != null && typeof get_local_storage_offline_events === 'object' && isSignedIn) {
             get_local_storage_offline_events = Object.values(get_local_storage_offline_events);
             if (get_local_storage_offline_events.length > 0) {
                 for (let i = 0; i < get_local_storage_offline_events.length; i++) {
